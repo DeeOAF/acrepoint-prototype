@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; }
+        .bg-brand { background-color: #2B7F68; }
+        .text-brand { color: #2B7F68; }
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.3); }
+        .nav-link:hover { background-color: #f1f5f9; color: #2B7F68; }
+        .nav-active { background-color: #ECFDF5; color: #2B7F68; font-weight: 900; }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+
+ <aside class="w-72 bg-white border-r border-gray-100 flex flex-col shrink-0 shadow-xl z-10">
+        <div class="p-8 mb-4">
+            <img src="https://i.imgur.com/mFfhdmw.png" alt="Acrepoint" class="w-30 mx-auto object-contain">
+        </div>
+        
+        <nav class="flex-1 px-6 space-y-1">
+            <p class="text-[10px] font-black text-gray-300 uppercase tracking-widest ml-3 mb-2">Main Menu</p>
+            <a href="index.html" class="nav-active flex items-center p-4 rounded-2xl transition-all">
+                <span class="mr-3 text-xl">🌱</span> Impact Dashboard
+            </a>
+            <a href="reservations.html" class="nav-link flex items-center p-4 text-gray-500 rounded-2xl transition-all">
+                <span class="mr-3 text-xl">📅</span> Reservations
+            </a>
+            <a href="reports.html" class="nav-link flex items-center p-4 text-gray-500 rounded-2xl transition-all">
+                <span class="mr-3 text-xl">📈</span> Reports
+            </a>
+            <a href="lost-sales.html" class="nav-link flex items-center p-4 text-gray-500 rounded-2xl transition-all">
+                <span class="mr-3 text-xl">⚠️</span> Lost Sales
+            </a>
+            <a href="manual-sale.html" class="nav-link flex items-center p-4 text-gray-500 rounded-2xl transition-all">
+                <span class="mr-3 text-xl">📝</span> Manual Sales
+            </a>
+            
+            <p class="text-[10px] font-black text-gray-300 uppercase tracking-widest ml-3 mb-2 mt-8">Operations</p>
+            <a href="completed-orders.html" class="nav-link flex items-center p-4 text-gray-500 rounded-2xl transition-all">
+                <span class="mr-3 text-xl">✅</span> Completed Orders
+            </a>
+            <a href="products.html" class="nav-link flex items-center p-4 text-gray-500 rounded-2xl transition-all">
+                <span class="mr-3 text-xl">🛍️</span> Products View
+            </a>
+        </nav>
+
+        <div class="p-6 border-t border-gray-50">
+            <div class="flex items-center space-x-3 bg-gray-50 p-4 rounded-3xl">
+                <div class="relative">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alex&backgroundColor=2b7f68" class="w-12 h-12 rounded-2xl bg-brand/10">
+                    <span class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></span>
+                </div>
+                <div>
+                    <p class="text-xs font-black text-gray-900">Alex Kamau</p>
+                    <p class="text-[10px] text-gray-400 font-bold uppercase">Nairobi CBD</p>
+                </div>
+            </div>
+            <p class="text-[9px] text-center text-gray-300 mt-4 font-bold tracking-widest uppercase">Acrepoint POS v1.0.4</p>
+        </div>
+    </aside>
+
+    <main class="flex-1 overflow-y-auto p-12">
+        <header class="flex justify-between items-start mb-12">
+            <div>
+                <h1 class="text-4xl font-black text-gray-900 tracking-tight">Habari, Alex</h1>
+                <p class="text-gray-500 font-medium text-lg mt-1 italic">"Let us impact a farmer today!"</p>
+            </div>
+            <div class="flex space-x-3">
+                <div class="bg-white px-6 py-3 rounded-2xl shadow-sm border border-gray-100 flex items-center">
+                    <span class="text-xs font-bold text-gray-400 mr-2 uppercase">Status:</span>
+                    <span class="text-xs font-black text-green-600 uppercase">Shop Online</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="mb-12">
+            <div class="bg-brand rounded-[3rem] p-10 text-white flex flex-col md:flex-row items-center justify-between shadow-2xl shadow-green-900/30 relative overflow-hidden">
+                <div class="z-10 text-center md:text-left">
+                    <h2 class="text-3xl font-black mb-2">Ready to serve a farmer?</h2>
+                    <p class="text-green-100 font-medium opacity-80">Quick checkout for cash, M-Pesa, or product inquiries.</p>
+                </div>
+                <div class="mt-8 md:mt-0 z-10">
+                    <a href="products.html" class="bg-white text-brand px-12 py-5 rounded-[2rem] font-black text-xl shadow-xl hover:scale-105 active:scale-95 transition-all inline-block">
+                        ⚡ Start New Sale
+                    </a>
+                </div>
+                <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+                <div class="absolute -left-10 -top-10 w-48 h-48 bg-black/5 rounded-full blur-2xl"></div>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div class="bg-white p-8 rounded-[3rem] shadow-sm border border-gray-100 relative overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1592982537447-6f2a6a0c3c1b?auto=format&fit=crop&q=80&w=400" class="absolute inset-0 w-full h-full object-cover opacity-5 group-hover:scale-110 transition-transform duration-700">
+                <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 relative">Revenue Today</p>
+                <h3 class="text-3xl font-black text-gray-900 relative">KES 84,200</h3>
+                <p class="text-green-500 text-[10px] font-bold mt-2 relative">↑ 14% vs Target</p>
+            </div>
+            
+            <div class="bg-white p-8 rounded-[3rem] shadow-sm border border-gray-100 relative overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&q=80&w=400" class="absolute inset-0 w-full h-full object-cover opacity-5 group-hover:scale-110 transition-transform duration-700">
+                <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1 relative">Impact Reach</p>
+                <h3 class="text-3xl font-black text-brand relative">142 Farmers</h3>
+                <p class="text-gray-400 text-[10px] font-bold mt-2 relative">Active in this cycle</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-[3rem] shadow-sm border border-amber-50 relative overflow-hidden group">
+                <div class="absolute inset-0 bg-amber-50/20"></div>
+                <p class="text-[10px] font-black text-amber-600 uppercase tracking-widest mb-1 relative">Inventory Risks</p>
+                <h3 class="text-3xl font-black text-amber-900 relative">08 Items</h3>
+                <p class="text-amber-600 text-[10px] font-bold mt-2 relative underline cursor-pointer">View Low Stock Alert</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <section class="bg-white rounded-[3rem] shadow-sm border border-gray-100 overflow-hidden">
+                <div class="p-8 border-b border-gray-50 flex justify-between items-center bg-gray-50/30">
+                    <h3 class="font-black text-gray-800 uppercase text-xs tracking-widest">Digital Reservations</h3>
+                    <span class="text-[10px] font-black text-blue-600 bg-blue-50 px-3 py-1 rounded-full uppercase">8 Pending</span>
+                </div>
+                <div class="p-4 space-y-4">
+                    <div class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-2xl transition">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-blue-100 text-blue-700 rounded-xl flex items-center justify-center font-bold mr-4 text-xs">TP</div>
+                            <div>
+                                <p class="text-sm font-bold text-gray-900">Tupande #9921</p>
+                                <p class="text-[10px] text-gray-400">Reserved by Jane M.</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-black text-gray-900">KES 4,500</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-[3rem] shadow-sm border border-gray-100 overflow-hidden">
+                <div class="p-8 border-b border-gray-50 flex justify-between items-center bg-gray-50/30">
+                    <h3 class="font-black text-gray-800 uppercase text-xs tracking-widest">Manual Sales Audit</h3>
+                    <span class="text-[10px] font-black text-amber-600 bg-amber-50 px-3 py-1 rounded-full uppercase">12 Needs Verification</span>
+                </div>
+                <div class="p-4 space-y-4">
+                    <div class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-2xl transition border-l-4 border-amber-400">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center font-bold mr-4 text-xs">M</div>
+                            <div>
+                                <p class="text-sm font-bold text-gray-900">Ref: RKJ4491X</p>
+                                <p class="text-[10px] text-gray-400">Input by Alex (2h ago)</p>
+                            </div>
+                        </div>
+                        <span class="text-xs font-black text-gray-900">KES 12,200</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

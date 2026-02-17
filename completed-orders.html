@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; }
+        .bg-brand { background-color: #2B7F68; }
+        .text-brand { color: #2B7F68; }
+        .row-hover:hover { background-color: #F1F5F9; transition: all 0.2s; }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+
+    <aside class="w-72 bg-white border-r border-gray-100 flex flex-col shrink-0 shadow-xl z-10">
+        <div class="p-8 mb-4">
+            <img src="https://imgur.com/GScbNV9" alt="Acrepoint" class="w-24 mx-auto object-contain">
+        </div>
+<div class="pt-12 pb-10 px-6 lg:px-12 text-center bg-white">
+    <img src="https://i.imgur.com/vvqzV97.png" 
+         alt="Acrepoint Logo" 
+         class="w-16 lg:w-52 mx-auto object-contain transition-all duration-300 hover:scale-105"
+         style="filter: drop-shadow(0 4px 10px rgba(43, 127, 104, 0.15));">
+</div>
+        
+        <nav class="flex-1 px-6 space-y-1">
+            <p class="text-[10px] font-black text-gray-300 uppercase tracking-widest ml-3 mb-2">Main Menu</p>
+            <a href="index.html" class="flex items-center p-4 text-gray-500 rounded-2xl hover:bg-gray-50 transition-all">
+                <span class="mr-3 text-xl">🌱</span> Impact Dashboard
+            </a>
+            <a href="reservations.html" class="flex items-center p-4 text-gray-500 rounded-2xl hover:bg-gray-50 transition-all">
+                <span class="mr-3 text-xl">📅</span> Reservations
+            </a>
+            <a href="reports.html" class="flex items-center p-4 text-gray-500 rounded-2xl hover:bg-gray-50 transition-all">
+                <span class="mr-3 text-xl">📈</span> Reports
+            </a>
+            <a href="lost-sales.html" class="flex items-center p-4 text-gray-500 rounded-2xl hover:bg-gray-50 transition-all">
+                <span class="mr-3 text-xl">⚠️</span> Lost Sales
+            </a>
+            <a href="manual-sale.html" class="flex items-center p-4 text-gray-500 rounded-2xl hover:bg-gray-50 transition-all">
+                <span class="mr-3 text-xl">📝</span> Manual Sales
+            </a>
+            
+            <p class="text-[10px] font-black text-gray-300 uppercase tracking-widest ml-3 mb-2 mt-8">Operations</p>
+            <a href="completed-orders.html" class="bg-green-50 text-brand flex items-center p-4 rounded-2xl font-black transition-all">
+                <span class="mr-3 text-xl">✅</span> Completed Orders
+            </a>
+            <a href="products.html" class="flex items-center p-4 text-gray-500 rounded-2xl hover:bg-gray-50 transition-all">
+                <span class="mr-3 text-xl">🛍️</span> Products View
+            </a>
+        </nav>
+
+        <div class="p-6 border-t border-gray-50">
+            <div class="flex items-center space-x-3 bg-gray-50 p-4 rounded-3xl">
+                <div class="relative">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alex&backgroundColor=2b7f68" class="w-12 h-12 rounded-2xl bg-brand/10">
+                </div>
+                <div>
+                    <p class="text-xs font-black text-gray-900">Alex Kamau</p>
+                    <p class="text-[10px] text-gray-400 font-bold uppercase">Nairobi CBD</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="flex-1 overflow-y-auto p-12">
+        <header class="flex justify-between items-center mb-12">
+            <div>
+                <h1 class="text-4xl font-black text-gray-900 tracking-tight">Completed Orders</h1>
+                <p class="text-gray-500 font-medium">History of all successful farmer transactions</p>
+            </div>
+            <div class="flex space-x-3">
+                <button class="bg-white border border-gray-200 px-6 py-3 rounded-2xl text-xs font-black uppercase tracking-widest text-gray-500 hover:bg-gray-50 transition">
+                    📥 Export CSV
+                </button>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="md:col-span-2 relative">
+                <span class="absolute left-5 top-5 opacity-30">🔍</span>
+                <input type="text" placeholder="Search by M-Pesa Code, Order ID, or Item Name..." 
+                       class="w-full p-5 pl-14 bg-white border border-gray-100 rounded-[2rem] shadow-sm focus:outline-none focus:border-brand transition">
+            </div>
+            <div class="relative">
+                <select class="w-full p-5 bg-white border border-gray-100 rounded-[2rem] shadow-sm font-bold text-gray-700 appearance-none focus:outline-brand">
+                    <option>February 2026 (Current)</option>
+                    <option>January 2026</option>
+                    <option>December 2025</option>
+                    <option>Show All Time</option>
+                </select>
+                <span class="absolute right-6 top-6 opacity-30">📅</span>
+            </div>
+        </div>
+
+        <section class="bg-white rounded-[3rem] shadow-sm border border-gray-100 overflow-hidden">
+            <table class="w-full text-left">
+                <thead class="bg-gray-50/50">
+                    <tr class="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">
+                        <th class="px-10 py-6">Timestamp / ID</th>
+                        <th class="px-10 py-6">Items Purchased</th>
+                        <th class="px-10 py-6">Payment Info</th>
+                        <th class="px-10 py-6 text-right">Amount</th>
+                        <th class="px-10 py-6 text-center">Receipt</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-50 text-sm">
+                    <tr class="row-hover">
+                        <td class="px-10 py-8">
+                            <p class="font-black text-gray-900 leading-none">#ACR-98122</p>
+                            <p class="text-[10px] text-gray-400 mt-2 font-bold uppercase tracking-tighter">06 Feb • 10:42 AM</p>
+                        </td>
+                        <td class="px-10 py-8">
+                            <p class="font-bold text-gray-800">DAP Fertilizer (50kg)</p>
+                            <p class="text-[10px] text-gray-400">Qty: 02 • SKU: FERT-001</p>
+                        </td>
+                        <td class="px-10 py-8">
+                            <div class="flex items-center">
+                                <span class="bg-green-100 text-green-700 text-[9px] font-black px-2 py-1 rounded mr-2 uppercase">M-PESA</span>
+                                <p class="text-xs font-bold text-gray-600">RKJ44P91X</p>
+                            </div>
+                        </td>
+                        <td class="px-10 py-8 text-right font-black text-brand text-lg">
+                            KES 7,000
+                        </td>
+                        <td class="px-10 py-8 text-center">
+                            <button class="bg-gray-100 hover:bg-brand hover:text-white p-3 rounded-xl transition group">
+                                <span class="text-lg">🖨️</span>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr class="row-hover">
+                        <td class="px-10 py-8">
+                            <p class="font-black text-gray-900 leading-none">#ACR-98119</p>
+                            <p class="text-[10px] text-gray-400 mt-2 font-bold uppercase tracking-tighter">06 Feb • 09:15 AM</p>
+                        </td>
+                        <td class="px-10 py-8">
+                            <p class="font-bold text-gray-800">Hybrid Maize Seed (H614)</p>
+                            <p class="text-[10px] text-gray-400">Qty: 01 • SKU: SEED-442</p>
+                        </td>
+                        <td class="px-10 py-8">
+                            <div class="flex items-center">
+                                <span class="bg-blue-100 text-blue-700 text-[9px] font-black px-2 py-1 rounded mr-2 uppercase">CASH</span>
+                                <p class="text-xs font-bold text-gray-600 italic">Verified</p>
+                            </div>
+                        </td>
+                        <td class="px-10 py-8 text-right font-black text-brand text-lg">
+                            KES 1,200
+                        </td>
+                        <td class="px-10 py-8 text-center">
+                            <button class="bg-gray-100 hover:bg-brand hover:text-white p-3 rounded-xl transition group">
+                                <span class="text-lg">🖨️</span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <footer class="mt-16 flex flex-col items-center opacity-30">
+            <img src="img/logo.jpg" alt="Acrepoint Logo" class="w-12 h-12 object-contain mb-2 grayscale">
+            <p class="text-[9px] font-black text-gray-900 uppercase tracking-[0.5em]">Acrepoint POS Production v1.0.4</p>
+        </footer>
+    </main>
+</body>
+</html>

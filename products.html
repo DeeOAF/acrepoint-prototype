@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; }
+        .bg-brand { background-color: #2B7F68; }
+        .text-brand { color: #2B7F68; }
+        .product-card { transition: all 0.2s ease; border: 1px solid #f1f5f9; }
+        .product-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); border-color: #2B7F68; }
+        .list-view-item { display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; background: white; border-radius: 1rem; margin-bottom: 0.5rem; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-white border-r border-gray-100 flex flex-col shrink-0">
+        <div class="p-8"><img src="https://i.imgur.com/mFfhdmw.png" class="w-30 mx-auto object-contain"></div>
+        <nav class="flex-1 px-4 space-y-1">
+            <a href="index.html" class="flex items-center p-3 text-gray-500 hover:bg-gray-50 rounded-xl transition font-medium">🌱 Impact Dashboard</a>
+            <a href="#" class="flex items-center p-3 bg-green-50 text-brand rounded-xl font-black">🛍️ Product Catalog</a>
+            <a href="reservations.html" class="flex items-center p-3 text-gray-500 hover:bg-gray-50 rounded-xl transition font-medium">📅 Reservations</a>
+        </nav>
+        <div class="p-6 opacity-30 text-[10px] text-center font-bold">Acrepoint POS v1.0.4</div>
+    </aside>
+
+    <main class="flex-1 overflow-y-auto p-8 pb-40">
+        <header class="flex justify-between items-center mb-8">
+            <div>
+                <h1 class="text-3xl font-black text-gray-900">Product Catalog</h1>
+                <p class="text-gray-500 text-sm">Nairobi CBD Branch • 420 SKUs Active</p>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <div class="bg-gray-200 p-1 rounded-xl flex text-[10px] font-black uppercase">
+                    <button onclick="setView('grid')" id="gridBtn" class="px-4 py-2 rounded-lg bg-white shadow-sm text-brand transition">Grid</button>
+                    <button onclick="setView('list')" id="listBtn" class="px-4 py-2 rounded-lg text-gray-500 transition">List</button>
+                </div>
+                <img src="https://ui-avatars.com/api/?name=Alex+Kamau&background=2B7F68&color=fff" class="w-10 h-10 rounded-full border-2 border-white shadow-sm">
+            </div>
+        </header>
+
+        <div class="flex flex-col lg:flex-row gap-4 mb-8">
+            <input type="text" placeholder="Search products, brands or SKU..." class="flex-1 p-4 bg-white border border-gray-200 rounded-2xl shadow-sm focus:outline-brand transition">
+            <select class="bg-white border border-gray-200 rounded-2xl px-6 font-bold text-xs uppercase tracking-widest text-gray-500">
+                <option>Fertilizers</option>
+                <option>Hybrid Seeds</option>
+                <option>Crop Protection</option>
+                <option>Irrigation</option>
+                <option>Hand Tools</option>
+            </select>
+        </div>
+
+        <div id="gridView" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <script>
+                const products = [
+                    { name: "DAP Fertilizer", price: 3500, cat: "Fertilizer", img: "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&q=80&w=200" },
+                    { name: "CAN Fertilizer", price: 2800, cat: "Fertilizer", img: "https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&q=80&w=200" },
+                    { name: "Hybrid Maize H614", price: 1200, cat: "Seeds", img: "https://images.unsplash.com/photo-1551730459-92db2a308d6a?auto=format&fit=crop&q=80&w=200" },
+                    { name: "Bean Seeds (Wairimu)", price: 450, cat: "Seeds", img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=200" },
+                    { name: "Knapsack Sprayer", price: 4500, cat: "Tools", img: "https://images.unsplash.com/photo-1590682846403-53ee018556ee?auto=format&fit=crop&q=80&w=200" },
+                    { name: "Steel Jembe", price: 850, cat: "Tools", img: "https://images.unsplash.com/photo-1615678815958-5910c6811c25?auto=format&fit=crop&q=80&w=200" },
+                    { name: "NPK 17:17:17", price: 3200, cat: "Fertilizer", img: "https://images.unsplash.com/photo-1574944985070-8f3afc6b79d2?auto=format&fit=crop&q=80&w=200" },
+                    { name: "Solar Lamp S30", price: 1500, cat: "Equipment", img: "https://images.unsplash.com/photo-1542332213-31f87348057f?auto=format&fit=crop&q=80&w=200" },
+                    { name: "Chicken Feed (Layers)", price: 2900, cat: "Animal", img: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&q=80&w=200" },
+                    { name: "Cabbage Seeds", price: 300, cat: "Seeds", img: "https://images.unsplash.com/photo-1592452139718-a77e4474ed04?auto=format&fit=crop&q=80&w=200" }
+                ];
+
+                document.write(products.map(p => `
+                    <div class="product-card bg-white p-4 rounded-3xl flex flex-col justify-between">
+                        <div>
+                            <img src="${p.img}" class="w-full h-32 object-cover rounded-2xl mb-3">
+                            <p class="text-[9px] font-black text-brand uppercase mb-1">${p.cat}</p>
+                            <h3 class="text-sm font-bold text-gray-900 leading-tight mb-2">${p.name}</h3>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-black text-gray-900">KES ${p.price.toLocaleString()}</span>
+                            <button onclick="addToCart('${p.name}', ${p.price})" class="bg-gray-100 text-gray-900 w-8 h-8 rounded-lg font-black hover:bg-brand hover:text-white transition">+</button>
+                        </div>
+                    </div>
+                `).join(''));
+            </script>
+        </div>
+
+        <div id="listView" class="hidden flex flex-col">
+             <script>
+                document.write(products.map(p => `
+                    <div class="list-view-item group hover:border-brand border border-transparent transition">
+                        <div class="flex items-center space-x-6">
+                            <img src="${p.img}" class="w-12 h-12 object-cover rounded-xl">
+                            <div>
+                                <h4 class="font-bold text-gray-900">${p.name}</h4>
+                                <p class="text-[10px] text-gray-400 uppercase font-black tracking-widest">${p.cat}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-12">
+                            <span class="font-black text-gray-900">KES ${p.price.toLocaleString()}</span>
+                            <button onclick="addToCart('${p.name}', ${p.price})" class="bg-brand text-white px-6 py-2 rounded-xl font-black text-xs uppercase">Add to Cart</button>
+                        </div>
+                    </div>
+                `).join(''));
+            </script>
+        </div>
+    </main>
+
+    <div id="cartBar" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-gray-900/95 backdrop-blur-xl w-full max-w-2xl p-6 rounded-[2.5rem] shadow-2xl flex justify-between items-center border border-white/10 translate-y-40 transition-all duration-500">
+        <div class="flex items-center space-x-8 pl-4">
+            <div class="flex flex-col">
+                <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Total Items</p>
+                <p class="text-white font-black" id="cartCount">0 Items</p>
+            </div>
+            <div class="text-3xl font-black text-brand" id="cartTotal">KES 0</div>
+        </div>
+        <a href="checkout.html" class="bg-brand text-white px-10 py-4 rounded-2xl font-black text-lg shadow-xl shadow-green-900/40 hover:scale-105 transition-all">Proceed to Checkout →</a>
+    </div>
+
+    <script>
+        let total = 0;
+        let count = 0;
+
+        function addToCart(name, price) {
+            count++;
+            total += price;
+            document.getElementById('cartBar').classList.remove('translate-y-40');
+            document.getElementById('cartCount').innerText = `${count} Items`;
+            document.getElementById('cartTotal').innerText = `KES ${total.toLocaleString()}`;
+            localStorage.setItem('checkoutTotal', total);
+        }
+
+        function setView(view) {
+            if(view === 'grid') {
+                document.getElementById('gridView').classList.remove('hidden');
+                document.getElementById('listView').classList.add('hidden');
+                document.getElementById('gridBtn').className = "px-4 py-2 rounded-lg bg-white shadow-sm text-brand transition";
+                document.getElementById('listBtn').className = "px-4 py-2 rounded-lg text-gray-500 transition";
+            } else {
+                document.getElementById('gridView').classList.add('hidden');
+                document.getElementById('listView').classList.remove('hidden');
+                document.getElementById('gridBtn').className = "px-4 py-2 rounded-lg text-gray-500 transition";
+                document.getElementById('listBtn').className = "px-4 py-2 rounded-lg bg-white shadow-sm text-brand transition";
+            }
+        }
+    </script>
+</body>
+</html>

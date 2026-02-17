@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0F172A; }
+        .bg-brand { background-color: #2B7F68; }
+        .text-brand { color: #2B7F68; }
+        
+        /* Specialized Horizontal Logo Glow */
+        .logo-glow { 
+            filter: drop-shadow(0 0 20px rgba(43, 127, 104, 0.3)); 
+            animation: pulse-glow 4s infinite ease-in-out;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { filter: drop-shadow(0 0 15px rgba(43, 127, 104, 0.2)); transform: scale(1); }
+            50% { filter: drop-shadow(0 0 30px rgba(43, 127, 104, 0.5)); transform: scale(1.02); }
+        }
+
+        .login-card {
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center relative overflow-hidden">
+
+    <div class="absolute inset-0 z-0">
+        <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=2000" 
+             class="w-full h-full object-cover opacity-20">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0F172A]/60 via-[#0F172A] to-[#0F172A]"></div>
+    </div>
+
+    <div class="relative z-10 w-full max-w-[1100px] grid grid-cols-1 lg:grid-cols-2 gap-16 p-8">
+        
+        <div class="hidden lg:flex flex-col justify-center">
+            <div class="mb-10">
+                <img src="https://i.imgur.com/mFfhdmw.png" alt="Acrepoint" class="w-64 logo-glow mb-10">
+                
+                <h1 class="text-7xl font-[900] text-white tracking-tighter leading-[0.9]">
+                    The Point of <br> <span class="text-brand">Impact.</span>
+                </h1>
+                <p class="text-gray-400 mt-8 text-xl max-w-md leading-relaxed">
+                    Bridging the gap between agricultural supply and smallholder success.
+                </p>
+            </div>
+            
+            <div class="flex items-center space-x-6">
+                <div class="px-5 py-2 rounded-full border border-white/10 text-[10px] font-black text-white uppercase tracking-widest">
+                    v1.0.4 Live
+                </div>
+                <div class="text-gray-500 text-[10px] font-black uppercase tracking-widest">
+                    Secured by Acrepoint Cloud
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-center">
+            <div class="bg-white rounded-[3.5rem] shadow-2xl p-10 lg:p-14 w-full max-w-md">
+                
+                <div class="lg:hidden flex justify-center mb-10">
+                    <img src="https://i.imgur.com/SAg7vNc.png" class="w-48 logo-glow">
+                </div>
+
+                <div class="mb-10">
+                    <h2 class="text-3xl font-black text-gray-900 tracking-tight">Agent Sign-in</h2>
+                    <p class="text-gray-400 font-medium text-sm mt-2">Access your branch terminal.</p>
+                </div>
+
+                <form class="space-y-6" onsubmit="event.preventDefault(); window.location.href='index.html';">
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-2">Branch Location</label>
+                        <select class="w-full p-5 bg-gray-50 border-2 border-transparent focus:border-brand rounded-3xl font-bold text-gray-800 outline-none transition">
+                            <option>Nairobi - CBD Hub</option>
+                            <option>Nakuru - North</option>
+                            <option>Eldoret - Central</option>
+			    <option>Kakamega - Western</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest ml-2">Agent Username</label>
+                        <input type="text" placeholder="e.g. alex_kamau" 
+                               class="w-full p-5 bg-gray-50 border-2 border-transparent focus:border-brand rounded-3xl font-bold text-gray-900 outline-none transition">
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="flex justify-between px-2">
+                            <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Password</label>
+                            <a href="#" class="text-[10px] font-black text-brand uppercase">Forgot?</a>
+                        </div>
+                        <input type="password" placeholder="••••••••" 
+                               class="w-full p-5 bg-gray-50 border-2 border-transparent focus:border-brand rounded-3xl font-bold text-gray-900 outline-none transition">
+                    </div>
+
+                    <button type="submit" 
+                            class="w-full bg-brand text-white p-6 rounded-[2rem] font-black text-xl shadow-xl shadow-green-900/20 hover:scale-[1.02] active:scale-[0.98] transition-all mt-4">
+                        Launch Terminal
+                    </button>
+                </form>
+
+                <div class="mt-10 text-center">
+                    <p class="text-[9px] font-black text-gray-300 uppercase tracking-widest">
+                        Authorized Access Only
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
